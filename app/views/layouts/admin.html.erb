@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+  <head>
+    <title>CellFashions - لوحة التحكم</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <a href="<%= admin_root_path %>">الرئيسية</a>
+    <a href="<%= admin_orders_path %>">الطلبات</a>
+    <a href="<%= admin_categories_path %>">الإقسام</a>
+    <a href="<%= admin_products_path %>">المنتجات</a>
+    <a href="<%= admin_users_path %>">المستخدمين</a>
+    <%= yield %>
+  </body>
+</html>

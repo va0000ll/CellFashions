@@ -1,0 +1,30 @@
+<div>
+
+<h3>الإقسام</h3>
+<%= link_to 'اضافة قسم', new_admin_category_path %>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th>#ID</th>
+        <th>الإسم</th>
+        <th>الوصف</th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+        <tr>
+            <td><%= link_to category.id, admin_category_path(category) %></td>
+            <td><%= category.name %></td>
+            <td><%= category.description %></td>
+            <td>
+              <%= link_to 'حذف', admin_category_path(category), method: :delete %>
+              <%= link_to 'تعديل', edit_admin_category_path(category) %>
+            </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

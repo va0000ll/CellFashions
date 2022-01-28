@@ -1,0 +1,14 @@
+<div>
+<h3>اضافة قسم</h3>
+  <%= form_with model: [:admin, @category] do |f| %>
+    <div>
+    <%= f.label :name, 'الإسم' %>
+    <%= f.text_field :name, placeholder: '' %>
+    </div>
+    <div>
+    <%= f.label :description, 'الوصف' %>
+    <%= f.text_area :description, placeholder: '' %>
+    </div>
+    <%= f.submit 'حفظ' %>
+  <% end %>
+</div>
