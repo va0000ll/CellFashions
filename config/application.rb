@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require 'dotenv/load'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -20,5 +21,6 @@ module CellFashions
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.i18n.default_locale = :ar
+    config.active_storage.service = :amazon
   end
 end

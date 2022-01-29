@@ -1,0 +1,9 @@
+<div>
+<h3>تفاصيل المنتج</h3>
+<%= link_to @product.id, admin_product_path(@product) %>
+<td><%= image_tag @product.image, height: '100' %></td>
+<h4><%= @product.name %></h4>
+<h4><%= @product.price %></h4>
+<p><%= @product.description %></p>
+<p><%= @product.keywords %></p>
+</div>

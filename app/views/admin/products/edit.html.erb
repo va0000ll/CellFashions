@@ -1,2 +1,30 @@
-<h1>Admin::Products#edit</h1>
-<p>Find me in app/views/admin/products/edit.html.erb</p>
+<div>
+<h3>تعديل منتج</h3>
+  <%= form_with model: [:admin, @product] do |f| %>
+    <div>
+    <%= f.label :image, 'صورة المنتج' %>
+    <%= f.file_field :image %>
+    </div>
+    <div>
+    <%= f.label :name, 'اسم المنتج' %>
+    <%= f.text_field :name %>
+    </div>
+    <div>
+    <%= f.label :price, 'سعر المنتج' %>
+    <%= f.text_field :price %>
+    </div>
+    <div>
+    <%= f.label :description, 'الوصف' %>
+    <%= f.text_area :description %>
+    </div>
+    <div>
+    <%= f.label :keywords, 'كلمات مفتاحية' %>
+    <%= f.text_area :keywords %>
+    </div>
+    <div>
+    <%= f.label :category_id, 'القسم' %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    </div>
+    <%= f.submit 'حفظ' %>
+  <% end %>
+</div>

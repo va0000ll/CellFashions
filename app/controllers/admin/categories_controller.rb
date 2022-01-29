@@ -1,11 +1,10 @@
 class Admin::CategoriesController < Admin::ApplicationController
   before_action :set_category, only: %i[edit update show destroy]
   def index
-    @categories = Category.all
+    @categories = Category.page params[:page]
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @category = Category.new
@@ -18,8 +17,7 @@ class Admin::CategoriesController < Admin::ApplicationController
     render :new
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @category.update(category_params)
@@ -40,5 +38,4 @@ class Admin::CategoriesController < Admin::ApplicationController
   def set_category
     @category = Category.find(params[:id])
   end
-
 end
