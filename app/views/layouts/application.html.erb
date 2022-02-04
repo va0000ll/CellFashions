@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl" lang="ar">
   <head>
     <title>CellFashions</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <div>
+      <%= link_to 'الرئيسية', root_path %>
+
+      <%= link_to "سلة المشتريات(#{current_user.carts.count})", carts_path %>
+      <%= link_to 'طلباتي', orders_path %>
+    </div>
+    <%= flash[:notice] %>
+    <%= flash[:success] %>
+    <%= flash[:alert] %>
     <%= yield %>
   </body>
 </html>

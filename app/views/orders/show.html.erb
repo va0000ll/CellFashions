@@ -1,2 +1,14 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<h3>معلومات الطلب</h3>
+
+<div>رقم الطلب: <%= @order.id %></div>
+<div>عدد المنتجات: <%= @order.products_count %></div>
+<div>حالة الطلب: <%= @order.status %></div>
+<div>تاريخ الطلب: <%= @order.created_at %></div>
+<div>المنتجات: </div>
+<% @products.each do |product| %>
+  <div><%= product.name %></div>
+  <div>
+    <span>السعر: <%= product.price %></span>
+    <span>الكمية: <%= product.qt %></span>
+  </div>
+<% end %>

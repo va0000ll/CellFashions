@@ -1,0 +1,21 @@
+<h3>سلة المشتريات</h3>
+
+<% @carts.each do |cart| %>
+  <div>
+    <span><%= cart.name %></span>
+    <span><%= cart.price %></span>
+    <%= link_to 'حذف', cart_path(cart.product_id), method: :delete %>
+  </div>
+  <div>
+    <%= link_to 'انقاص العدد', decrement_cart_path(cart.product_id) %>
+    <span><%= cart.qt %></span>
+    <%= link_to 'زيادة العدد', increment_cart_path(cart.product_id) %>
+  </div>
+<% end %>
+
+<% if @carts.size.positive? %>
+<br ><br >
+<%= link_to 'متابعة للدفع', '/checkout' %>
+<% else %>
+<div>سلة المشتريات فارغة</div>
+<% end %>
