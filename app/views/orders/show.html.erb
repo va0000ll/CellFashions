@@ -13,7 +13,7 @@
         <h3><%= product.name %></h3>
         <div class="text-muted"><%= product.description %></div>
         <div class="align-items-center d-flex justify-content-between">
-          <div class="product-price" dir="ltr"><%= product.price %> USD</div>
+          <div class="product-price" dir="ltr"><%= number_to_currency product.price %></div>
           <div>
             <span><strong>الكمية:</strong> <%= product.qt %></span>
           </div>
@@ -22,6 +22,6 @@
     </div>
   <% end %>
   <div class="bg-white mt-3 d-flex justify-content-between align-items-center">
-    <strong>المجموع : <%= @products.sum { |item| item.price * item.qt } %></strong>
+    <strong>المجموع : <span dir="ltr"><%= number_to_currency(@products.sum { |item| item.price * item.qt }) %></span></strong>
   </div>
 </div>

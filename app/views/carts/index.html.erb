@@ -6,7 +6,7 @@
     <div class="w-100 text-start ps-2">
       <h3><%= cart.name %></h3>
       <div class="align-items-center d-flex justify-content-between">
-        <div class="product-price" dir="ltr"><%= cart.price %> USD</div>
+        <div class="product-price" dir="ltr"><%= number_to_currency cart.price %></div>
         <div>
           <%= link_to '-', decrement_cart_path(cart.product_id), class: 'btn btn-seconary shadow-none' %>
           <strong><%= cart.qt %></strong>
@@ -20,7 +20,7 @@
 
 <% if @carts.size.positive? %>
 <div class="bg-white p-2 my-3 d-flex justify-content-between align-items-center">
-  <strong>المجموع : <%= @carts.sum { |item| item.price * item.qt } %></strong>
+  <strong>المجموع : <span dir="ltr"><%= number_to_currency(@carts.sum { |item| item.price * item.qt }) %></span></strong>
   <%= link_to 'متابعة للدفع', '/checkout', class: 'btn btn-primary btn-lg shadow-none' %>
 </div>
 <% else %>
