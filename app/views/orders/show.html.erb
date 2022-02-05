@@ -1,14 +1,27 @@
-<h3>معلومات الطلب</h3>
+<h3 class="mb-4">معلومات الطلب</h3>
 
-<div>رقم الطلب: <%= @order.id %></div>
-<div>عدد المنتجات: <%= @order.products_count %></div>
-<div>حالة الطلب: <%= @order.status %></div>
-<div>تاريخ الطلب: <%= @order.created_at %></div>
-<div>المنتجات: </div>
-<% @products.each do |product| %>
-  <div><%= product.name %></div>
-  <div>
-    <span>السعر: <%= product.price %></span>
-    <span>الكمية: <%= product.qt %></span>
+<div class="bg-white p-3 rounded">
+  <div class="text-primary"><strong>رقم الطلب:</strong> #<%= @order.id %></div>
+  <div><strong>عدد المنتجات:</strong> <%= @order.products_count %></div>
+  <div><strong>حالة الطلب:</strong> <%= @order.status %></div>
+  <div><strong>تاريخ الطلب:</strong> <%= @order.created_at %></div>
+  <div><strong>المنتجات:</strong> </div>
+  <% @products.each do |product| %>
+    <div class="text-center d-flex align-items-center bg-white p-2 rounded my-2 product">
+      <%= image_tag product.image, height: 100, class: 'img-thumbnail' %>
+      <div class="w-100 text-start ps-2">
+        <h3><%= product.name %></h3>
+        <div class="text-muted"><%= product.description %></div>
+        <div class="align-items-center d-flex justify-content-between">
+          <div class="product-price" dir="ltr"><%= product.price %> USD</div>
+          <div>
+            <span><strong>الكمية:</strong> <%= product.qt %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="bg-white mt-3 d-flex justify-content-between align-items-center">
+    <strong>المجموع : <%= @products.sum { |item| item.price * item.qt } %></strong>
   </div>
-<% end %>
+</div>

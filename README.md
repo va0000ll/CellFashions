@@ -1,24 +1,15 @@
-# README
+# CellFashions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple online store build with rails
 
-Things you may want to cover:
+Live demo: https://cell-fashions.herokuapp.com/
 
-* Ruby version
+# Login to amdin
+go to: /admin
+username: admin
+password: amin
 
-* System dependencies
+# test paypal paymeent
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+email: mohamedvalltestbuy2009@hotmail.com
+password: @@!!@@!!

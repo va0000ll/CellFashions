@@ -28,7 +28,7 @@ class CheckoutController < ApplicationController
   end
 
   def new
-    carts = current_user.carts.all
+    carts = current_user.carts.select('carts.*, products.price').joins(:product).all
     return redirect_to root_path, notice: 'اضف منتحات الى سلة المشتريات' unless carts.size.positive?
 
     pp_request = PayPalCheckoutSdk::Orders::OrdersCreateRequest.new
@@ -46,7 +46,7 @@ class CheckoutController < ApplicationController
                                 {
                                   amount: {
                                     currency_code: 'USD',
-                                    value: Product.where(id: carts.pluck(:product_id)).sum(:price)
+                                    value: carts.to_a.sum { |item| item.price * item.qt }
                                   }
                                 }
                               ]

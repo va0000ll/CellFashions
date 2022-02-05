@@ -1,14 +1,27 @@
-<h2>
- منتجاتنا
-</h2>
-
-<% @products.each do |product| %>
+<div class="">
   <div>
-    <%= product.name %>
-    <%= product.description %>
-    <%= form_with url: carts_path do |f| %>
-      <%= f.hidden_field :product_id, value: product.id %>
-      <%= f.submit 'اضافة للسلة' %>
-    <% end %>
+   <select name="" id="" class="form-control shadow-none" onchange="window.location.href = '?category_id=' + this.value">
+      <option value="">الإقسام</option>
+      <% Category.all.each do |category| %>
+      <option <%= category.id.to_s == params[:category_id] ? 'selected=""' : '' %> value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
   </div>
-<% end %>
+
+  <% @products.each do |product| %>
+    <div class="text-center d-flex align-items-center bg-white p-2 rounded my-2 product">
+      <%= image_tag product.image, height: 100, class: 'img-thumbnail' %>
+      <div class="w-100 text-start ps-2">
+        <h3><%= product.name %></h3>
+        <div class="text-muted"><%= product.description %></div>
+        <div class="align-items-center d-flex justify-content-between">
+          <div class="product-price" dir="ltr"><%= product.price %> USD</div>
+          <%= form_with url: carts_path do |f| %>
+            <%= f.hidden_field :product_id, value: product.id %>
+            <%= f.button 'اضافة للسلة', type: 'submit', class: 'btn btn-primary btn-sm shadow-none' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
