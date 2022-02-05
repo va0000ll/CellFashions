@@ -4,12 +4,12 @@ Simple online store build with rails
 
 Live demo: https://cell-fashions.herokuapp.com/
 
-# Login to amdin
+# Login to admin
 go to: /admin
-username: admin
-password: amin
+- username: admin
+- password: amin
 
-# test paypal paymeent
+# Test pay with Paypal
 
-email: mohamedvalltestbuy2009@hotmail.com
-password: @@!!@@!!
+- email: mohamedvalltestbuy2009@hotmail.com
+- password: @@!!@@!!

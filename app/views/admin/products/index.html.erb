@@ -19,7 +19,7 @@
     <% @products.each do |product| %>
         <tr>
             <td><%= link_to product.id, admin_product_path(product) %></td>
-            <td><%= image_tag product.image, height: '100' %></td>
+            <td><%= product.image.present? ? image_tag(product.image, height: '100') : '' %></td>
             <td><%= product.name %></td>
             <td><%= product.price %></td>
             <td><%= product.description %></td>

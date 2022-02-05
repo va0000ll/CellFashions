@@ -2,7 +2,7 @@
 
 <% @carts.each do |cart| %>
   <div class="text-center d-flex align-items-center bg-white p-2 rounded my-2 product">
-    <%= image_tag cart.product.image, height: 100, class: 'img-thumbnail' %>
+    <%= cart.product.image.present? ? image_tag(cart.product.image, height: 100, class: 'img-thumbnail') : '' %>
     <div class="w-100 text-start ps-2">
       <h3><%= cart.name %></h3>
       <div class="align-items-center d-flex justify-content-between">
