@@ -16,4 +16,12 @@ module ApplicationHelper
 
     "<div class='alert alert-warning py-1'>#{flash[:alert]}</div>".html_safe
   end
+
+  def active_page_class(current)
+    return '' unless params[:controller] == current
+
+    return 'active' if params[:controller].include? 'admin'
+
+    'bg-light'
+  end
 end

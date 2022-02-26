@@ -1,11 +1,18 @@
-<h2>تقارير المبيعات</h2>
+<h2 class="my-4">تقارير المبيعات</h2>
 
-<h3>آخر 24 ساعة</h3>
-<div><strong>عدد الطلبات: </strong> <%= Order.total_count_last_24h %></div>
-<div><strong>إجمالي المبيعات: </strong> <span dir="ltr"><%= number_to_currency OrdersProduct.total_last_24h %></span></div>
-<div><strong>إجمالى المنتجات: </strong> <%= OrdersProduct.total_count_last_24h %></div>
-
-<h3>آخر 30 يوم</h3>
-<div><strong>عدد الطلبات: </strong> <%= Order.total_count_last_30d %></div>
-<div><strong>إجمالي المبيعات:</strong> <span dir="ltr"><%= number_to_currency OrdersProduct.total_last_30d %></span></div>
-<div><strong>إجمالى المنتجات: </strong> <%= OrdersProduct.total_count_last_30d %></div>
+<div class="card my-3">
+  <h5 class="card-header">آخر 24 ساعة</h5>
+  <div class="card-body">
+    <div><strong>عدد الطلبات: </strong> <%= Order.total_count_last_24h %></div>
+    <div><strong>إجمالي المبيعات: </strong> <span dir="ltr"><%= number_to_currency OrdersProduct.total_last_24h %></span></div>
+    <div><strong>إجمالى المنتجات: </strong> <%= OrdersProduct.total_count_last_24h %></div>
+  </div>
+</div>
+<div class="card">
+  <h5 class="card-header">آخر 30 يوم</h5>
+  <div class="card-body">
+    <div><strong>عدد الطلبات: </strong> <%= Order.total_count_last_30d %></div>
+    <div><strong>إجمالي المبيعات:</strong> <span dir="ltr"><%= number_to_currency OrdersProduct.total_last_30d %></span></div>
+    <div><strong>إجمالى المنتجات: </strong> <%= OrdersProduct.total_count_last_30d %></div>
+  </div>
+</div>

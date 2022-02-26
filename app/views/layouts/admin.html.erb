@@ -11,11 +11,35 @@
   </head>
 
   <body>
-    <a href="<%= admin_root_path %>">الرئيسية</a>
-    <a href="<%= admin_orders_path %>">الطلبات</a>
-    <a href="<%= admin_categories_path %>">الإقسام</a>
-    <a href="<%= admin_products_path %>">المنتجات</a>
-    <a href="<%= admin_users_path %>">المستخدمين</a>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="<%= admin_root_path %>">Admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link <%= active_page_class('admin/home') %>" href="<%= admin_root_path %>">الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%= active_page_class('admin/orders') %>" href="<%= admin_orders_path %>">الطلبات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%= active_page_class('admin/categories') %>" href="<%= admin_categories_path %>">الأقسام</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%= active_page_class('admin/products') %>" href="<%= admin_products_path %>">المنتجات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <%= active_page_class('admin/users') %>" href="<%= admin_users_path %>">المستخدمين</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
