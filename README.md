@@ -7,7 +7,7 @@ Live demo: https://cell-fashions.herokuapp.com/
 # Login to admin
 go to: /admin
 - username: admin
-- password: amin
+- password: admin
 
 # Test pay with Paypal
 
