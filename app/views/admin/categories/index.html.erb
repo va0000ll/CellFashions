@@ -1,31 +1,20 @@
-<div>
+<div class="page-head d-flex mb-3 align-items-center">
+  <h3 class="w-100">الإقسام</h3>
+  <%= link_to 'اضافة قسم', new_admin_category_path, class: 'btn btn-primary text-nowrap' %>
+</div>
 
-<h3>الإقسام</h3>
-<%= link_to 'اضافة قسم', new_admin_category_path %>
-
-<table class="table">
+<table class="table table-bordered table-sm text-center">
   <thead>
     <tr>
-        <th>#ID</th>
+        <th>ID</th>
         <th>الإسم</th>
         <th>الوصف</th>
         <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @categories.each do |category| %>
-        <tr>
-            <td><%= link_to category.id, admin_category_path(category) %></td>
-            <td><%= category.name %></td>
-            <td><%= category.description %></td>
-            <td>
-              <%= link_to 'حذف', admin_category_path(category), method: :delete %>
-              <%= link_to 'تعديل', edit_admin_category_path(category) %>
-            </td>
-        </tr>
-    <% end %>
+    <%= render @categories %>
   </tbody>
 </table>
-<%= paginate @categories %>
 
-</div>
+<%= paginate @categories %>

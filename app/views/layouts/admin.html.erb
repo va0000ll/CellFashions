@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
   <head>
-    <title>CellFashions - لوحة التحكم</title>
+    <title>Cell Fashions - لوحة التحكم</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
+      <div class="container">
         <a class="navbar-brand" href="<%= admin_root_path %>">Admin</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,10 @@
         </div>
       </div>
     </nav>
-    <div class="container">
+    <div class="container py-3">
+      <%= alert_notice %>
+      <%= alert_success %>
+      <%= alert_alert %>
       <%= yield %>
     </div>
   </body>

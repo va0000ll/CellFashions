@@ -1,0 +1,12 @@
+<tr>
+    <td><%= link_to product.id, admin_product_path(product) %></td>
+    <td><%= product.image.present? ? image_tag(product.image, width: '100', class: 'img-thumbnail') : '' %></td>
+    <td><%= product.name %></td>
+    <td><%= product.price %></td>
+    <td><%= product.description %></td>
+    <td><%= product.keywords %></td>
+    <td>
+        <%= link_to 'تعديل', edit_admin_product_path(product), class: 'btn btn-sm btn-secondary' %>
+        <%= link_to 'حذف', admin_product_path(product), method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' } %>
+    </td>
+</tr>

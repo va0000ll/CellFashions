@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <h3 class="mb-3">تفاصيل المستخدم</h3>
+        <div class="list-group">
+          <div class="list-group-item">
+            <%= link_to @user.id, admin_user_path(@user) %>
+          </div>
+          <div class="list-group-item m-0">
+            <strong>البريد الإلكتروني: </strong>
+            <%= @user.email %>
+          </div>
+          <div class="list-group-item">
+            <strong>حالة الطلب: </strong>
+            <%= user_status @user.access_locked? %>
+          </div>
+          <div class="list-group-item">
+            <strong>بتاريخ: </strong>
+            منذ <%= time_ago_in_words @user.created_at %>
+          </div>
+        </div>
+    </div>
+</div>

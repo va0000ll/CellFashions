@@ -1,0 +1,9 @@
+<tr>
+    <td><%= link_to order.id, admin_order_path(order) %></td>
+    <td><%= order.products_count %></td>
+    <td><%= order_status(order.status) %></td>
+    <td>منذ <%= time_ago_in_words order.created_at %></td>
+    <td>
+    <%= link_to 'حذف', admin_order_path(order), method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' } %>
+    </td>
+</tr>

@@ -1,0 +1,14 @@
+<tr>
+    <td><%= link_to user.id, admin_user_path(user) %></td>
+    <td><%= user.email %></td>
+    <td><%= user_status user.access_locked? %></td>
+    <td>منذ <%= time_ago_in_words user.created_at %></td>
+    <td>
+    <%= link_to 'حذف', admin_user_path(user), method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' } %>
+    <% if user.access_locked? %>
+    <%= link_to 'رفع الحظر', toggle_status_admin_user_path(user), class: 'btn btn-sm btn-success', data: { confirm: 'Are you sure?' } %>
+    <% else %>
+    <%= link_to 'حظر', toggle_status_admin_user_path(user), class: 'btn btn-sm btn-warning', data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    </td>
+</tr>

@@ -1,12 +1,12 @@
-<div>
+<div class="page-head d-flex mb-3 align-items-center">
+  <h3 class="w-100">المنتجات</h3>
+  <%= link_to 'اضافة منتج', new_admin_product_path, class: 'btn btn-primary text-nowrap' %>
+</div>
 
-<h3>المنتجات</h3>
-<%= link_to 'اضافة منتج', new_admin_product_path %>
-
-<table class="table">
+<table class="table table-bordered table-sm text-center">
   <thead>
     <tr>
-        <th>#ID</th>
+        <th>ID</th>
         <th>الصورة</th>
         <th>الإسم</th>
         <th>السعر</th>
@@ -16,22 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @products.each do |product| %>
-        <tr>
-            <td><%= link_to product.id, admin_product_path(product) %></td>
-            <td><%= product.image.present? ? image_tag(product.image, height: '100') : '' %></td>
-            <td><%= product.name %></td>
-            <td><%= product.price %></td>
-            <td><%= product.description %></td>
-            <td><%= product.keywords %></td>
-            <td>
-              <%= link_to 'حذف', admin_product_path(product), method: :delete %>
-              <%= link_to 'تعديل', edit_admin_product_path(product) %>
-            </td>
-        </tr>
-    <% end %>
+    <%= render @products %>
   </tbody>
 </table>
 <%= paginate @products %>
-
-</div>

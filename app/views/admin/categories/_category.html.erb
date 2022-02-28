@@ -1,0 +1,9 @@
+<tr>
+    <td><%= link_to category.id, admin_category_path(category) %></td>
+    <td><%= category.name %></td>
+    <td><%= category.description %></td>
+    <td>
+    <%= link_to 'تعديل', edit_admin_category_path(category), class: 'btn btn-sm btn-secondary' %>
+    <%= link_to 'حذف', admin_category_path(category), method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' } %>
+    </td>
+</tr>

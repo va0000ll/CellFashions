@@ -24,4 +24,14 @@ module ApplicationHelper
 
     'bg-light'
   end
+
+  def order_status(status)
+    { 'paid' => 'تم الدفع' }[status]
+  end
+
+  def user_status(status)
+    return '<span class="badge bg-warning">محظور</span>'.html_safe if status
+
+    '<span class="badge bg-success">مفعل</span>'.html_safe
+  end
 end

@@ -1,9 +1,13 @@
-<div>
-<h3>تفاصيل المنتج</h3>
-<%= link_to @product.id, admin_product_path(@product) %>
-<td><%= @product.image.present? ? image_tag(@product.image, height: '100') : '' %></td>
-<h4><%= @product.name %></h4>
-<h4><%= @product.price %></h4>
-<p><%= @product.description %></p>
-<p><%= @product.keywords %></p>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <h3 class="mb-3">تفاصيل المنتج</h3>
+        <div class="list-group text-center">
+          <div class="list-group-item"><%= link_to @product.id, admin_product_path(@product) %></div>
+          <div class="list-group-item"><%= @product.image.present? ? image_tag(@product.image, class: 'img-thumbnail') : '' %></div>
+          <div class="list-group-item"><%= @product.name %></div>
+          <div class="list-group-item"><%= @product.price %></div>
+          <div class="list-group-item"><%= @product.description %></div>
+          <div class="list-group-item"><%= @product.keywords %></div>
+        </div>
+    </div>
 </div>

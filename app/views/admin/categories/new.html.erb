@@ -1,14 +1,16 @@
-<div>
-<h3>اضافة قسم</h3>
-  <%= form_with model: [:admin, @category] do |f| %>
-    <div>
-    <%= f.label :name, 'الإسم' %>
-    <%= f.text_field :name, placeholder: '' %>
-    </div>
-    <div>
-    <%= f.label :description, 'الوصف' %>
-    <%= f.text_area :description, placeholder: '' %>
-    </div>
-    <%= f.submit 'حفظ' %>
-  <% end %>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <h3 class="mb-3">اضافة قسم</h3>
+    <%= form_with model: [:admin, @category] do |f| %>
+      <div class="mb-3">
+        <%= f.label :name, 'الإسم', class: 'form-label' %>
+        <%= f.text_field :name, placeholder: '', class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :description, 'الوصف', class: 'form-label' %>
+        <%= f.text_area :description, placeholder: '', class: 'form-control' %>
+      </div>
+      <%= f.submit 'حفظ', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
 </div>

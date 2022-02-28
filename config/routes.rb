@@ -3,8 +3,12 @@ Rails.application.routes.draw do
     root to: 'home#index'
     resources :categories
     resources :products
-    resources :orders, only: %i[index update destroy]
-    resources :users, only: %i[index update destroy]
+    resources :orders, only: %i[index update show destroy]
+    resources :users, only: %i[index update show destroy] do
+      member do
+        get :toggle_status
+      end
+    end
   end
   root to: 'home#index'
   devise_for :users

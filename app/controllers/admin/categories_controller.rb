@@ -1,7 +1,7 @@
 class Admin::CategoriesController < Admin::ApplicationController
   before_action :set_category, only: %i[edit update show destroy]
   def index
-    @categories = Category.page params[:page]
+    @categories = Category.order(id: :desc).page params[:page]
   end
 
   def show; end
