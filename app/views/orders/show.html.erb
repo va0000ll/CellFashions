@@ -3,23 +3,15 @@
 <div class="bg-white p-3 rounded">
   <div class="text-primary"><strong>رقم الطلب:</strong> #<%= @order.id %></div>
   <div><strong>عدد المنتجات:</strong> <%= @order.products_count %></div>
-  <div><strong>حالة الطلب:</strong> <%= @order.status %></div>
-  <div><strong>تاريخ الطلب:</strong> <%= @order.created_at %></div>
+  <div><strong>حالة الطلب:</strong> <%= order_status @order.status %></div>
+  <div><strong>تاريخ الطلب:</strong> منذ <%= time_ago_in_words @order.created_at %></div>
   <div><strong>المنتجات:</strong> </div>
   <% @products.each do |product| %>
-    <div class="text-center d-flex align-items-center bg-white p-2 rounded my-2 product">
-      <%= product.image.present? ? image_tag(product.image, height: 100, class: 'img-thumbnail') : '' %>
-      <div class="w-100 text-start ps-2">
-        <h3><%= product.name %></h3>
-        <div class="text-muted"><%= product.description %></div>
-        <div class="align-items-center d-flex justify-content-between">
-          <div class="product-price" dir="ltr"><%= number_to_currency product.price %></div>
-          <div>
-            <span><strong>الكمية:</strong> <%= product.qt %></span>
-          </div>
-        </div>
+    <%= render 'products/product', product: product do %>
+      <div>
+        <span><strong>الكمية:</strong> <%= product.qt %></span>
       </div>
-    </div>
+    <% end %>
   <% end %>
   <div class="bg-white mt-3 d-flex justify-content-between align-items-center">
     <strong>المجموع : <span dir="ltr"><%= number_to_currency(@products.sum { |item| item.price * item.qt }) %></span></strong>

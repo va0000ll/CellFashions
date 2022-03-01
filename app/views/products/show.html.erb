@@ -1,2 +1,4 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<%= @product.image.present? ? image_tag(@product.image, height: 100, class: 'img-thumbnail my-3') : '' %>
+<h3 class="text-primary"><%= @product.name %></h3>
+<h4 class="product-price text-primary" dir="ltr"><%= number_to_currency @product.price %></h4>
+<%= render 'carts/new', product: @product %>

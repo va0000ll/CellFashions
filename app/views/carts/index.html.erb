@@ -1,21 +1,14 @@
 <h3 class="mb-4">سلة المشتريات</h3>
 
 <% @carts.each do |cart| %>
-  <div class="text-center d-flex align-items-center bg-white p-2 rounded my-2 product">
-    <%= cart.product.image.present? ? image_tag(cart.product.image, height: 100, class: 'img-thumbnail') : '' %>
-    <div class="w-100 text-start ps-2">
-      <h3><%= cart.name %></h3>
-      <div class="align-items-center d-flex justify-content-between">
-        <div class="product-price" dir="ltr"><%= number_to_currency cart.price %></div>
-        <div>
+  <%= render 'products/product', product: cart.product do %>
+      <div>
           <%= link_to '-', decrement_cart_path(cart.product_id), class: 'btn btn-seconary shadow-none' %>
           <strong><%= cart.qt %></strong>
           <%= link_to '+', increment_cart_path(cart.product_id), class: 'btn btn-seconary shadow-none' %>
-          <%= link_to 'حذف', cart_path(cart.product_id), method: :delete, class: 'btn btn-danger btn-sm shadow-none ps-3' %>
+          <%= link_to 'حذف', cart_path(cart.product_id), method: :delete, data: { confirm: 'هل أنت متأكد؟' }, class: 'btn btn-danger btn-sm shadow-none ps-3' %>
         </div>
-      </div>
-    </div>
-  </div>
+  <% end %>
 <% end %>
 
 <% if @carts.size.positive? %>

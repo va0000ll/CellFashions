@@ -1,0 +1,13 @@
+<div class="text-center d-flex align-items-center bg-white p-2 rounded my-2 product">
+    <%= product.image.present? ? image_tag(product.image, height: 100, class: 'img-thumbnail') : '' %>
+    <div class="w-100 text-start ps-2">
+    <%= link_to product_path(product), class: 'text-decoration-none' do %>
+        <h3><%= product.name %></h3>
+    <% end %>
+    <div class="text-muted"><%= product.description %></div>
+    <div class="align-items-center d-flex justify-content-between">
+        <div class="product-price" dir="ltr"><%= number_to_currency product.price %></div>
+        <%= yield %>
+    </div>
+    </div>
+</div>

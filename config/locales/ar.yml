@@ -247,11 +247,11 @@ ar:
       format:
         delimiter: ","
         format: "%u %n"
-        precision: 3
+        precision: 2
         separator: "."
         significant: false
         strip_insignificant_zeros: false
-        unit: "KWD"
+        unit: "$"
     format:
       delimiter: ","
       precision: 3

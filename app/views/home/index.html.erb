@@ -9,19 +9,8 @@
   </div>
 
   <% @products.each do |product| %>
-    <div class="text-center d-flex align-items-center bg-white p-2 rounded my-2 product">
-      <%= product.image.present? ? image_tag(product.image, height: 100, class: 'img-thumbnail') : '' %>
-      <div class="w-100 text-start ps-2">
-        <h3><%= product.name %></h3>
-        <div class="text-muted"><%= product.description %></div>
-        <div class="align-items-center d-flex justify-content-between">
-          <div class="product-price" dir="ltr"><%= number_to_currency product.price %></div>
-          <%= form_with url: carts_path do |f| %>
-            <%= f.hidden_field :product_id, value: product.id %>
-            <%= f.button 'اضافة للسلة', type: 'submit', class: 'btn btn-primary btn-sm shadow-none' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= render 'products/product', product: product do %>
+      <%= render 'carts/new', product: product %>
+    <% end %>
   <% end %>
 </div>
