@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :carts
+
+  validates_presence_of :full_name
 end

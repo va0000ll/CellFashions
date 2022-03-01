@@ -10,6 +10,7 @@ ar:
         current_sign_in_at: تسجيل الدخول الحالي في
         current_sign_in_ip: عنوان IP لتسجيل الدخول الحالي
         email: بريد إلكتروني
+        full_name: الإسم الكامل
         encrypted_password: كلمة المرور المشفرة
         failed_attempts: محاولات فاشلة
         last_sign_in_at: آخر تسجيل دخول في
@@ -37,7 +38,7 @@ ar:
     failure:
       already_authenticated: لقد قمت بتسجيل الدخول بالفعل.
       inactive: لم يتم تفعيل حسابك بعد.
-      invalid:
+      invalid: معلومات الدخول غير صحيحة
       last_attempt: لديك محاولة أو أكثر قبل غلق حسابك.
       locked: تم غلق حسابك.
       not_found_in_database:
